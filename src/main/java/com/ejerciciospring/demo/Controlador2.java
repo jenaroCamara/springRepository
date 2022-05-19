@@ -5,12 +5,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 @RestController
-@RequestMapping("/c1")
-public class Controlador1 {
+@RequestMapping("/c2")
+public class Controlador2 {
 
     @Autowired PersonService personaService;
+
     @GetMapping("/hola")
     public String getHola(){
         return "Hola mundo";
@@ -26,11 +26,10 @@ public class Controlador1 {
         return persona;
     }
 
-    @GetMapping("/addPersona")
-    public void doubleNumber(@RequestHeader("name") String name, @RequestHeader("ciudad") String ciudad, @RequestHeader("edad") String edad) {
-        personaService.setEdad(edad);
-        personaService.setNombre(name);
-        personaService.setCiudad(ciudad);
+    @GetMapping("/getPersona")
+    public Persona doubleNumber() {
+        personaService.setEdad(Integer.toString(Integer.parseInt(personaService.getEdad())*2));
+        return personaService.getPersona();
     }
 
 }
