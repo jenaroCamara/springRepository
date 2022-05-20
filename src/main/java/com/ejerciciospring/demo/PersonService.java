@@ -1,5 +1,7 @@
 package com.ejerciciospring.demo;
 
+import java.util.List;
+
 public interface PersonService {
     String getNombre();
     String getCiudad();
@@ -9,5 +11,7 @@ public interface PersonService {
     void setNombre(String nombre);
     void setCiudad(String ciudad);
     void setEdad(String edad);
+    public List<Ciudad> getListaCiudades();
+    public void anadirListaCiudades(Ciudad c);
 
 }

@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/c2")
 public class Controlador2 {
@@ -30,6 +32,11 @@ public class Controlador2 {
     public Persona doubleNumber() {
         personaService.setEdad(Integer.toString(Integer.parseInt(personaService.getEdad())*2));
         return personaService.getPersona();
+    }
+
+    @GetMapping("/getCiudad")
+    public List<Ciudad> addCiudad(){
+        return personaService.getListaCiudades();
     }
 
 }
