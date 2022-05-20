@@ -1,8 +1,6 @@
 package com.ejerciciospring.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,17 +29,31 @@ public class Controlador1 {
     }
 
     @GetMapping("/addPersona")
-    public void doubleNumber(@RequestHeader("name") String name, @RequestHeader("ciudad") String ciudad, @RequestHeader("edad") String edad) {
+    public Persona doubleNumber(@RequestHeader("nombre") String name, @RequestHeader("ciudad") String ciudad, @RequestHeader("edad") String edad) {
         personaService.setEdad(edad);
         personaService.setNombre(name);
         personaService.setCiudad(ciudad);
+        return personaService.getPersona();
     }
 
+    //AÑADE LA CIUDAD Y LA DEVUELVE EN UN OBJETO JSON RS1
     @PostMapping("/addCiudad")
     public List<Ciudad> addCiudad(@RequestBody Ciudad c){
         personaService.anadirListaCiudades(c);
         List<Ciudad> l = personaService.getListaCiudades();
         return l;
+    }
+
+    //OBTIENE UNA CIUDAD CUALQUIERA, PASADA POR LA URL RS1
+    @GetMapping("/getCiudad/{nombre}")
+    public Ciudad getCity(@PathVariable("nombre") String name) {
+        List<Ciudad> lista = personaService.getListaCiudades();
+        for (int i=0; i< lista.size(); i++){
+            if (lista.get(i).getNombre().equals(name)){
+                return lista.get(i);
+            }
+        }
+        return null;
     }
 
     //-----------Devolver Beans------------------
@@ -56,4 +68,13 @@ public class Controlador1 {
         }
         return personaService.devolverBean3();
     }
+
+    //---------Put------------
+    @PutMapping("/actualizar/{nombre}/{edad}/{ciudad}")
+    public Persona actualizar(@PathVariable("nombre") String nombre, @PathVariable("edad") String edad, @PathVariable("ciudad") String ciudad) {
+        personaService.setNombre(nombre);
+        personaService.setEdad(edad);
+        personaService.setCiudad(ciudad);
+        return personaService.getPersona();
+    }//{{spring}}/c1/actualizar/Jose/30/madrid
 }

@@ -14,6 +14,15 @@ public class PersonServiceImpl implements PersonService{
     List<Ciudad> ListaCiudades;
 
     @Bean
+    @Qualifier(value="ciudad")
+    List<Ciudad> instanciaCiudad(){
+        ListaCiudades = new ArrayList<Ciudad>();
+        Ciudad c = new Ciudad("Jaen",500);
+        Ciudad p = new Ciudad("Cordoba",600);
+        ListaCiudades.add(c);ListaCiudades.add(p);
+        return ListaCiudades;
+    }
+    @Bean
     @Qualifier(value="Bean1")
     public String devolverBean1(){
         return "Bean1";
@@ -46,11 +55,16 @@ public class PersonServiceImpl implements PersonService{
     public String getNombre(){
         return persona.getName();
     }
+
+    public String getNombreCiudad(){
+        return persona.getName();
+    }
+
     public String getCiudad(){
         return persona.getCiudad();
     }
     public String getEdad(){
-        return persona.edad;
+        return persona.getEDAD();
     }
 
     public void setNombre(String nombre){

@@ -16,5 +16,6 @@ public interface PersonService {
     public String devolverBean1();
     public String devolverBean2();
     public String devolverBean3();
+    public String getNombreCiudad();
 
 }

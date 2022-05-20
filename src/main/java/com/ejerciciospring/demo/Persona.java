@@ -21,4 +21,7 @@ public class Persona {
     public String getCiudad(){
         return ciudad;
     }
+    public String getEDAD(){
+        return edad;
+    }
 }
