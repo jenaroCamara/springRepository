@@ -43,4 +43,17 @@ public class Controlador1 {
         List<Ciudad> l = personaService.getListaCiudades();
         return l;
     }
+
+    //-----------Devolver Beans------------------
+    @GetMapping("/bean/{bean}")
+    public String obtenerBean(@PathVariable String bean) {
+        if(bean.equals("Bean1")){
+            return personaService.devolverBean1();
+        }else{
+            if(bean.equals("Bean2")){
+                return personaService.devolverBean2();
+            }
+        }
+        return personaService.devolverBean3();
+    }
 }
