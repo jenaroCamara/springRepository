@@ -25,6 +25,7 @@ public class Controlador1 {
 
     @PostMapping("/useradd")
     public Persona createUser (@RequestBody Persona persona) {
+        personaService.setPersona(persona);
         return persona;
     }
 
@@ -69,12 +70,4 @@ public class Controlador1 {
         return personaService.devolverBean3();
     }
 
-    //---------Put------------
-    @PutMapping("/actualizar/{nombre}/{edad}/{ciudad}")
-    public Persona actualizar(@PathVariable("nombre") String nombre, @PathVariable("edad") String edad, @PathVariable("ciudad") String ciudad) {
-        personaService.setNombre(nombre);
-        personaService.setEdad(edad);
-        personaService.setCiudad(ciudad);
-        return personaService.getPersona();
-    }//{{spring}}/c1/actualizar/Jose/30/madrid
 }
