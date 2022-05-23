@@ -15,6 +15,12 @@ public class Persona {
         this.ciudad = ciudad;
     }
 
+    public void setPersonaa(Persona p){
+        name = p.getName();
+        edad = p.getEDAD();
+        ciudad = p.getCiudad();
+    }
+
     public String getName(){
         return name;
     }
@@ -23,5 +29,16 @@ public class Persona {
     }
     public String getEDAD(){
         return edad;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setEdad(String edad) {
+        this.edad = edad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
     }
 }

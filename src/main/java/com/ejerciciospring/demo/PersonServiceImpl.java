@@ -12,6 +12,7 @@ public class PersonServiceImpl implements PersonService{
 
     Persona persona = new Persona();
     List<Ciudad> ListaCiudades;
+    List<Persona> listaPersonas;
 
     @Bean
     @Qualifier(value="ciudad")
@@ -22,6 +23,17 @@ public class PersonServiceImpl implements PersonService{
         ListaCiudades.add(c);ListaCiudades.add(p);
         return ListaCiudades;
     }
+
+    @Bean
+    @Qualifier(value="personas")
+    List<Persona> instanciaPersonas(){
+        listaPersonas = new ArrayList<Persona>();
+        Persona p = new Persona("Jenaro","25","Jaen");
+        Persona pe = new Persona("jose","24","Cordoba");
+        listaPersonas.add(p);listaPersonas.add(pe);
+        return listaPersonas;
+    }
+
     @Bean
     @Qualifier(value="Bean1")
     public String devolverBean1(){
@@ -43,6 +55,9 @@ public class PersonServiceImpl implements PersonService{
     public List<Ciudad> getListaCiudades() {
         return ListaCiudades;
     }
+    public List<Persona> getListaPersonas() {
+        return listaPersonas;
+    }
 
     public void anadirListaCiudades(Ciudad c) {
         ListaCiudades.add(c);
@@ -50,6 +65,9 @@ public class PersonServiceImpl implements PersonService{
 
     public Persona getPersona() {
         return persona;
+    }
+    public void setPersona(Persona p){
+        persona.setPersonaa(p);
     }
 
     public String getNombre(){

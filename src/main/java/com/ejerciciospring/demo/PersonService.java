@@ -6,7 +6,7 @@ public interface PersonService {
     String getNombre();
     String getCiudad();
     String getEdad();
-
+    void setPersona(Persona p);
     Persona getPersona();
     void setNombre(String nombre);
     void setCiudad(String ciudad);
@@ -17,5 +17,5 @@ public interface PersonService {
     public String devolverBean2();
     public String devolverBean3();
     public String getNombreCiudad();
-
+    public List<Persona> getListaPersonas();
 }
