@@ -3,6 +3,7 @@ package com.ejerciciospring.demo;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -43,14 +44,6 @@ public class Persona {
 
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
-    }
-
-    @Bean
-    @Qualifier(value="Clase Secundaria")
-    CommandLineRunner ejecutame(){
-        return p->{
-            System.out.println("Hola desde la clase secundaria");
-        };
     }
 
 }

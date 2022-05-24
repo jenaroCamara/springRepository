@@ -35,19 +35,19 @@ public class PersonServiceImpl implements PersonService{
     }
 
     @Bean
-    @Qualifier(value="Bean1")
+    @Qualifier("Bean1")
     public String devolverBean1(){
         return "Bean1";
     }
 
     @Bean
-    @Qualifier(value="Bean2")
+    @Qualifier("Bean2")
     public String devolverBean2(){
         return "Bean2";
     }
 
     @Bean
-    @Qualifier(value="Bean3")
+    @Qualifier("Bean3")
     public String devolverBean3(){
         return "Bean3";
     }

@@ -34,12 +34,5 @@ public class Ciudad {
         this.numeroHabitantes = numeroHabitantes;
     }
 
-    @Bean
-    @Qualifier(value="Tercera Clase")
-    CommandLineRunner ejecutame3clase(String h){
-        return c->{
-            System.out.println("Hola desde la tercera clase" + h);
-        };
-    }//Esto hay que modificarlo porque no se por donde tengo que inicializar el string h.
 
 }
